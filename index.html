@@ -26,7 +26,6 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
-        <li><a href="#thesis">Thesis</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#passions">Passions</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -44,8 +43,8 @@
           <p class="hero-sub reveal" data-delay="1">Automotive Engineer <span class="sub-sep">·</span> Cognitive Agent <span class="sub-sep">·</span> Agentic Engineering</p>
           <p class="hero-line reveal" data-delay="2">In my Master's thesis, I built a computable simulation — a cognitive agent model that predicts user acceptance of highly automated driving.</p>
           <div class="hero-actions reveal" data-delay="3">
-            <a class="btn btn-solid" href="#thesis">Explore my thesis</a>
-            <a class="btn btn-outline" href="#projects">See my work</a>
+            <a class="btn btn-solid" href="#projects">See my work</a>
+            <a class="btn btn-outline" href="#contact">Get in touch</a>
             <a class="btn btn-outline" href="https://github.com/memonbr" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           </div>
         </div>
@@ -239,186 +238,10 @@
       </div>
     </section>
 
-    <!-- THESIS / COTAM -->
-    <section id="thesis" class="section section-alt">
-      <div class="container">
-        <p class="section-label reveal">05 / Thesis</p>
-        <h2 class="section-title reveal">A computable model of acceptance<br>for the highly automated cabin<span class="h1-dot">.</span></h2>
-
-        <div class="row reveal">
-          <span class="row-title">The research question</span>
-          <div class="row-items">
-            <p>In a highly automated vehicle the occupant stops driving — and the interior becomes a living space. Whether people accept the technology is then decided by the design of that space: seat rotation, comfort, screens, leg room. The problem: interior design parameters and user-acceptance psychology (the Technology Acceptance Model, TAM) were treated as separate worlds.</p>
-            <p>My master's thesis (ika, RWTH Aachen University, 2023) closed that gap. It turned the TAM — a psychological, non-computable theory — into <strong>COTAM, the Computable Technology Acceptance Model</strong>, connecting the beta coefficients of acceptance psychology to the concrete geometry of an interior concept.</p>
-          </div>
-        </div>
-
-        <div class="row reveal" data-delay="1">
-          <span class="row-title">From TAM to COTAM</span>
-          <div class="row-items">
-            <p>Acceptance here is modelled as the TAM chain: <strong>trust (T) and attitude (ATT) directly drive behavioural intention (BI)</strong>, attitude itself is driven by <strong>perceived usefulness (PU)</strong> and <strong>perceived ease of use (PEoU)</strong> and, additionally, by directly perceived comfort (C). Each arrow carries a standardized beta coefficient from literature (Eq. 4-2):</p>
-            <p class="eq">γ′&thinsp;=&thinsp;β₁&thinsp;·&thinsp;x</p>
-            <p>Every parameter class in the interior is a NumPy array of rates between 0 and 1. When a parameter is absent from the concept, its rate is simply "0" — so any design becomes a computable vector.</p>
-          </div>
-        </div>
-
-        <div class="fig-list">
-          <figure class="fig reveal">
-            <img src="assets/thesis/modified-tam.png" alt="Modified Technology Acceptance Model adopted in the thesis" loading="lazy">
-            <figcaption><span class="tag">Fig. 4-2</span> — Modified version of the adopted Technology Acceptance Model, enriched with perceived comfort.</figcaption>
-          </figure>
-          <figure class="fig reveal" data-delay="1">
-            <img src="assets/thesis/model-schematic.jpg" alt="COTAM model schematic from seat inputs to acceptance rate" loading="lazy">
-            <figcaption><span class="tag">Model schematic</span> — from scenario inputs, through interpolated criteria rates and beta multiplication, to the behavioural-intention (acceptance) array.</figcaption>
-          </figure>
-        </div>
-
-        <div class="row reveal">
-          <span class="row-title">The inputs — a scenario engine</span>
-          <div class="row-items">
-            <p>The concept is defined in two steps. First the two <strong>scenario-defining</strong> choices: seat rotation (0–360°, surveyed every 30°) and seat height (38–46 cm). Then the posture and equipment complete the cabin — backrest (130–157°), seat pan (11–15°), headrest (95–97°) and the optional components (overhead display, vending machine, fridge, drawers, table, trash bin, lunch server, e-curtain). Between the surveyed points <strong>linear interpolation</strong> predicts any angle or centimetre (Fig. 4-5 / 4-6).</p>
-            <p>The model also respects geometry: the user is a point with 120° of peripheral vision. A <strong>seat facing it (rotation 180°) activates the leg-distance criterion</strong> (44–65 cm), and an overhead display only contributes while it stays inside the user's peripheral vision — hence the rotation rule <span class="chip">160° ≤ angle ≤ 280° → contribution 0</span>.</p>
-          </div>
-        </div>
-
-        <div class="fig-list">
-          <figure class="fig reveal">
-            <img src="assets/thesis/cotam-arrays-map.png" alt="Mapping of input arrays in COTAM" loading="lazy">
-            <figcaption><span class="tag">Fig. 4-10</span> — Mapping of the input arrays: each criterion array (comfort, trust, usefulness, ease of use, attitude) is multiplied by its beta coefficient, concatenated, and summed into the behavioural-intention (acceptance) array.</figcaption>
-          </figure>
-          <figure class="fig reveal" data-delay="1">
-            <img src="assets/thesis/cotam-actual-acceptance.png" alt="Calculation of the actual acceptance value" loading="lazy">
-            <figcaption><span class="tag">Fig. 4-11</span> — Schematic of the actual acceptance value: only the parameters actually considered in the scenario contribute (absent ⟶ rate "0").</figcaption>
-          </figure>
-        </div>
-
-        <div class="row reveal">
-          <span class="row-title">The computation</span>
-          <div class="row-items">
-            <p>Each array is multiplied by its standardized beta coefficient, then concatenated along the TAM chain — exactly as in the original Python implementation:</p>
-            <p class="eq">PU&thinsp;=&thinsp;[crit_pu&thinsp;|&thinsp;β_c·pu·crit_c&thinsp;|&thinsp;β_peou·pu·crit_peou]</p>
-            <p class="eq">ATT&thinsp;=&thinsp;[crit_att&thinsp;|&thinsp;β_peou·att·crit_peou&thinsp;|&thinsp;β_pu·att·PU]</p>
-            <p class="eq">BI&thinsp;=&thinsp;[β_att·int·ATT&thinsp;|&thinsp;β_t·int·crit_t]&nbsp;&nbsp;→&nbsp;&nbsp;Int_act&thinsp;=&thinsp;Σ&thinsp;BI</p>
-            <p>To compare designs on a common scale, COTAM also computes a maximum acceptance value (all arrays at their best rates) and scales (Eq. 4-3, A<sub>min</sub>=0):</p>
-            <p class="eq eq-focus">Acceptance&nbsp;Rate&nbsp;[%]&thinsp;=&thinsp;(A<sub>actual</sub>&thinsp;−&thinsp;A<sub>min</sub>)&thinsp;/&thinsp;(A<sub>max</sub>&thinsp;−&thinsp;A<sub>min</sub>)&thinsp;·&thinsp;100</p>
-          </div>
-        </div>
-
-        <div class="row reveal">
-          <span class="row-title">Validation — a real experiment</span>
-          <div class="row-items">
-            <p>COTAM was validated in the ika static-driving mock-up (<strong>KAI</strong> — AI-supported assistant for interior development): experts from the vehicle-concept department experienced five scenarios — laptop usage, smartphone usage, smartphone with overhead display, personal audio zone (PAZ) and seat facing with leg distance — and rated them via questionnaires (UEQ, SUS, trust scale). The experiment's own criteria rates, fed back into COTAM, came out <strong>significantly close to the measured acceptance</strong>:</p>
-            <ul class="check-list">
-              <li>Smartphone + overhead display — measured vs COTAM: <strong>~6 %</strong> difference (7 % without normalization)</li>
-              <li>Personal Audio Zone — <strong>~2 %</strong> difference, for a scenario COTAM had never seen before</li>
-              <li>Enriched interior concept — <strong>≈ 59.1 %</strong> acceptance rate, clearly above the threshold, so components (e.g. trash bin) could be dropped without hurting acceptance</li>
-            </ul>
-            <p>COTAM consequently answers not only established scenarios but also <strong>any future, unthought-of interior</strong> — that is the point for a radical innovation like highly automated driving.</p>
-          </div>
-        </div>
-
-        <div class="fig-list">
-          <figure class="fig reveal">
-            <img src="assets/thesis/experiment-to-cotam.png" alt="Experiment results as input to COTAM" loading="lazy">
-            <figcaption><span class="tag">Fig. 6-1</span> — Feedback loop of the validation: measured criteria rates from the mock-up study are used as COTAM's inputs.</figcaption>
-          </figure>
-          <figure class="fig reveal" data-delay="1">
-            <img src="assets/thesis/smartphone-ohd-results.png" alt="Smartphone usage with overhead display results" loading="lazy">
-            <figcaption><span class="tag">Fig. 6-2</span> — Smartphone + overhead display: experiment, COTAM and normalized COTAM behavioural intention (acceptance).</figcaption>
-          </figure>
-        </div>
-
-        <!-- INTERACTIVE SIMULATION -->
-        <h3 class="block-label reveal">Try the model</h3>
-        <p class="section-hint reveal" data-delay="1">Configure a cabin concept — COTAM computes the acceptance rate live, with the same beta coefficients and data as the original thesis model.</p>
-
-        <div class="sim reveal" id="sim">
-          <div class="sim-grid">
-            <div class="sim-left">
-              <div class="ctl-group">
-                <div class="ctl-head">
-                  <span class="ctl-title">Seat rotation</span>
-                  <span class="ctl-val" id="rotVal">0°</span>
-                </div>
-                <input type="range" id="rotSlider" min="0" max="360" step="1" value="0">
-                <div class="ctl-note" id="rotNote"></div>
-              </div>
-              <div class="ctl-group">
-                <div class="ctl-head">
-                  <span class="ctl-title">Seat height</span>
-                  <span class="ctl-val" id="hgtVal">38 cm</span>
-                </div>
-                <input type="range" id="hgtSlider" min="38" max="46" step="1" value="38">
-              </div>
-              <div class="ctl-group">
-                <div class="ctl-head">
-                  <span class="ctl-title">Seat facing distance</span>
-                  <span class="ctl-val" id="distVal">44 cm</span>
-                </div>
-                <input type="range" id="distSlider" min="44" max="65" step="1" value="44">
-                <div class="ctl-note" id="distNote">Active only when the seat faces the cabin (rotation = 180°).</div>
-              </div>
-              <div class="ctl-group">
-                <div class="ctl-head">
-                  <span class="ctl-title">Posture</span>
-                </div>
-                <div class="posture">
-                  <label>Backrest <b id="brVal">130°</b><input type="range" id="brSlider" min="130" max="157" step="1" value="130"></label>
-                  <label>Seat pan <b id="panVal">11°</b><input type="range" id="panSlider" min="11" max="15" step="1" value="11"></label>
-                  <label>Headrest <b id="hrVal">95°</b><input type="range" id="hrSlider" min="95" max="97" step="1" value="95"></label>
-                </div>
-              </div>
-            </div>
-
-            <div class="sim-center">
-              <div class="plan" id="planWrap">
-                <canvas id="planCanvas" width="220" height="220" aria-hidden="true"></canvas>
-                <div class="plan-note" id="planNote"></div>
-              </div>
-            </div>
-
-            <div class="sim-right">
-              <div class="ctl-group">
-                <div class="ctl-head">
-                  <span class="ctl-title">Equipment</span>
-                </div>
-                <div class="ab-grid" id="abGrid"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="sim-out">
-            <div class="out-big">
-              <span class="out-num" id="outNum">0.0%</span>
-              <span class="out-cap">Acceptance rate</span>
-            </div>
-            <div class="out-bar"><div class="out-fill" id="outFill"></div></div>
-            <div class="out-sub" id="outSub"></div>
-            <div class="bars" id="bars"></div>
-          </div>
-        </div>
-
-        <h3 class="block-label reveal">References</h3>
-        <ol class="refs reveal">
-          <li id="ref-fre89"><span class="tag">[FRE89]</span> Fred D. Davis — <em>Perceived Usefulness, Perceived Ease of Use, and User Acceptance of Information Technology</em>. 1989, 319–340.</li>
-          <li id="ref-lee03"><span class="tag">[LEE03]</span> Lee, Y., Kozar, K. A., Larsen, K. R. T. — <em>The Technology Acceptance Model: Past, Present, and Future</em>. Communications of the Association for Information Systems, 2003.</li>
-          <li id="ref-ven03"><span class="tag">[VEN03]</span> Venkatesh, V., Morris, M. G., Davis, G. B., Davis, F. D. — <em>User Acceptance of Information Technology: Toward a Unified View</em>. MIS Quarterly, 27(3), 2003, 425–478.</li>
-          <li id="ref-jia00"><span class="tag">[JIA00]</span> Jian, J.-Y., Bisantz, A. M., Drury, C. G. — <em>Foundations for an Empirically Determined Scale of Trust in Automated Systems</em>. International Journal of Cognitive Ergonomics, 2000, 53–71.</li>
-          <li id="ref-gro20"><span class="tag">[GRO20]</span> Gross, C., Siepermann, M., Lackes, R. — <em>The Acceptance of Smart Home Technology</em>. Perspectives in Business Informatics Research, Springer, 2020, 3–18.</li>
-          <li id="ref-nas20"><span class="tag">[NAS20]</span> Nastjuk, I., Herrenkind, B., Marrone, M., Brendel, A. B., Kolbe, L. M. — <em>What Drives the Acceptance of Autonomous Driving?</em> Technological Forecasting and Social Change, 2020, 120319.</li>
-          <li id="ref-mey22"><span class="tag">[MEY22]</span> Meyer-Waarden, L., Cloarec, J. — <em>"Baby, you can drive my car": Psychological antecedents that drive consumers' adoption of AI-powered autonomous vehicles</em>. Technovation, 2022, 102348.</li>
-          <li id="ref-leh19"><span class="tag">[LEH19]</span> Lehmann, S. — <em>How Will We Travel Autonomously? User Needs for Interior Concepts and Requirements Towards Occupant Safety</em>. 2019.</li>
-          <li id="ref-lui18"><span class="tag">[LUI18]</span> Luís Oliveira, L., Luton, J., Iyer, S., Burns, C., Mouzakitis, A., Jennings, P., Birrell, S. — <em>Evaluating How Interfaces Influence the User Interaction with Fully Autonomous Vehicle</em>. 2018, 320–331.</li>
-          <li id="ref-fio21"><span class="tag">[FIO21]</span> Fiorillo, I., Nasti, M., Naddeo, A. — <em>Design for Comfort and Social Interaction in Future Vehicles: A Study on the Leg Space Between Facing-Seats Configuration</em>. International Journal of Industrial Ergonomics, 2021, 103131.</li>
-        </ol>
-        <p class="ref-note reveal">Full bibliography in the thesis: <em>Dilek, M. E. — Modeling Effects of Interior Design Parameters on User Acceptance Criteria for Highly Automated Driving</em>. Master Thesis, Institute for Automotive Engineering (ika), RWTH Aachen University, January 2023.</p>
-      </div>
-    </section>
-
     <!-- PROJECTS -->
     <section id="projects" class="section">
       <div class="container">
-        <p class="section-label reveal">06 / Projects</p>
+        <p class="section-label reveal">05 / Projects</p>
         <h2 class="section-title reveal">Things I've built<span class="h1-dot">.</span></h2>
         <p class="section-hint reveal" data-delay="1">Hover a row to take a look.</p>
         <div class="index index-projects">
@@ -447,7 +270,7 @@
     <!-- PASSIONS -->
     <section id="passions" class="section section-alt">
       <div class="container">
-        <p class="section-label reveal">07 / Passions</p>
+        <p class="section-label reveal">06 / Passions</p>
         <h2 class="section-title reveal">Beyond the engineering</h2>
         <div class="passions reveal">
           <div class="passion-icon" aria-hidden="true">♪</div>
@@ -464,7 +287,7 @@
     <!-- CONTACT -->
     <section id="contact" class="section contact">
       <div class="container">
-        <p class="section-label reveal">08 / Contact</p>
+        <p class="section-label reveal">07 / Contact</p>
         <h2 class="section-title reveal">Let's build something<br>intelligent<span class="h1-dot">.</span></h2>
         <p class="contact-intro reveal" data-delay="1">Open to research collaborations, engineering roles and interesting conversations — in English, German or Turkish.</p>
         <a class="mail-big reveal" data-delay="1" href="mailto:mhmted@gmail.com">mhmted@gmail.com</a>
