@@ -342,6 +342,14 @@ body.cursor-on .cursor { opacity: 1; }
   margin: -26px 0 18px;
 }
 
+.github-link {
+  color: var(--accent);
+  font-weight: bold;
+  border-bottom: 1px solid var(--accent);
+  transition: opacity .2s var(--ease);
+}
+.github-link:hover { opacity: .6; }
+
 .block-label {
   font-size: 14px;
   font-weight: bold;
