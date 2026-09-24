@@ -4,16 +4,16 @@
    ============================================================ */
 
 :root {
-  --bg: #48BCAB;            /* turquoise base */
-  --bg-deep: #3CA893;       /* deeper turquoise for alt sections */
-  --bg-soft: #5AC9B8;       /* lighter turquoise for accents */
+  --bg: #2185DF;            /* blue hardcourt base */
+  --bg-deep: #1869BD;       /* deeper blue for alt sections */
+  --bg-soft: #3A96E7;       /* lighter blue for accents */
   --ink: #0B0B0B;
-  --muted: #0E2C25;         /* dark teal secondary text */
-  --accent: #0B4A41;        /* deep teal for tags/dates */
+  --muted: #0A2540;         /* dark blue secondary text */
+  --accent: #0D47A1;        /* deep blue for tags/dates */
   --line: rgba(0, 0, 0, 0.2);
   --line-soft: rgba(0, 0, 0, 0.12);
-  --teal-light: #8BE8D8;    /* accents on dark */
-  --cream-soft: #EFFBF7;
+  --teal-light: #90CAF9;    /* accents on dark */
+  --cream-soft: #E3F2FD;
   --max-w: 1120px;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
@@ -27,7 +27,7 @@ html {
 
 body {
   font-family: "Doppio One", Arial, Helvetica, sans-serif;
-  background: var(--bg);
+  background: linear-gradient(rgba(33, 133, 223, 0.88), rgba(24, 105, 189, 0.92)), url('assets/blue-hardcourt.jpg') center/cover fixed no-repeat;
   color: var(--ink);
   line-height: 1.65;
   font-size: 16px;
@@ -89,7 +89,7 @@ body.cursor-on .cursor { opacity: 1; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(72, 188, 171, 0.86);
+  background: rgba(33, 133, 223, 0.86);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-soft);
 }
