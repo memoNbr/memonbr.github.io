@@ -1,20 +1,20 @@
 /* ============================================================
    Mehmet Emin Dilek — Personal site
-   Editorial + interactive · Hook Agency #10 palette (Tan, pink, red)
+   Editorial + interactive · Hook Agency #8 palette (Tan, purple, yellow) + forest feel
    ============================================================ */
 
 :root {
-  --bg: #fff5d7;            /* Ragin Beige - warm page background */
-  --bg-deep: #f0d9b8;       /* lighter tan for alt sections */
-  --bg-soft: #fff8e7;       /* softer cream for accents */
-  --ink: #3d2e2e;           /* warm dark ink */
-  --muted: #8b7373;         /* muted warm secondary text */
-  --accent: #ff5e6c;        /* Coral Pink - primary accent */
-  --line: rgba(61, 46, 46, 0.2);
-  --line-soft: rgba(61, 46, 46, 0.12);
-  --accent-alt: #ffaaab;    /* Pink Leaf - secondary accent */
-  --highlight: #feb300;     /* Sleuthe Yellow - highlights */
-  --cream-soft: #fffef7;    /* warm white */
+  --bg: #fceed1;                    /* Background Tan */
+  --bg-deep: #e8d5b8;               /* deeper tan for alt sections */
+  --bg-soft: #fff4e6;               /* soft cream highlight */
+  --ink: #2d1b3d;                   /* deep purple-charcoal */
+  --muted: #6b5a7a;                 /* muted purple-gray */
+  --accent: #7d3cff;                /* Purple-y - primary */
+  --accent-alt: #f2d53c;            /* Yellow Gloves - secondary */
+  --highlight: #c80e13;             /* Redhead - tertiary accent */
+  --line: rgba(45, 27, 61, 0.15);
+  --line-soft: rgba(45, 27, 61, 0.08);
+  --cream-soft: #fffef5;
   --max-w: 1120px;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
@@ -29,6 +29,12 @@ html {
 body {
   font-family: "Doppio One", Arial, Helvetica, sans-serif;
   background: var(--bg);
+  background-image: url('assets/forest-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
   color: var(--ink);
   line-height: 1.65;
   font-size: 16px;
@@ -90,7 +96,7 @@ body.cursor-on .cursor { opacity: 1; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 245, 215, 0.92);
+  background: rgba(252, 238, 209, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-soft);
 }
