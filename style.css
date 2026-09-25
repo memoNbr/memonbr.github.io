@@ -29,14 +29,12 @@ html {
 body {
   font-family: "Doppio One", Arial, Helvetica, sans-serif;
   background: 
-    linear-gradient(135deg, #c0c4c8 0%, #e8eaf0 25%, #a8adb4 50%, #d8dce0 75%, #b0b4b8 100%),
-    radial-gradient(ellipse at 50% 30%, rgba(232, 234, 240, 0.6) 0%, transparent 50%),
-    radial-gradient(ellipse at 30% 70%, rgba(168, 173, 180, 0.4) 0%, transparent 40%);
-  background-size: 200% 200%, 400px 300px, 300px 200px;
-  background-position: center, 20% 40%, 80% 60%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay, screen, soft-light;
+    linear-gradient(135deg, rgba(192, 196, 200, 0.4) 0%, rgba(232, 234, 240, 0.3) 25%, rgba(168, 173, 180, 0.5) 50%, rgba(216, 220, 224, 0.3) 75%, rgba(176, 180, 184, 0.4) 100%),
+    url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1920&q=80') center/cover fixed no-repeat;
+  background-blend-mode: overlay, multiply;
+  background-size: 200% 200%, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
   animation: metallic-shift 20s ease-in-out infinite;
   color: var(--ink);
   line-height: 1.65;
@@ -46,8 +44,8 @@ body {
 }
 
 @keyframes metallic-shift {
-  0%, 100% { background-position: center, 20% 40%, 80% 60%; }
-  50% { background-position: center, 30% 50%, 70% 50%; }
+  0%, 100% { background-position: center, center; }
+  50% { background-position: 55% 50%, center; }
 }
 
 img { max-width: 100%; display: block; }
