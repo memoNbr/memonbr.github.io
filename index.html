@@ -12,30 +12,61 @@
 </head>
 <body>
 
-  <!-- green duotone + hand-inked contour for the portrait (declarative only) -->
+  <!-- portrait colour treatments (declarative only, no text):
+       default = blue duotone, hover = vintage sepia "old photograph".
+       Both preserve luminance, so the face still reads as you. -->
   <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
     <defs>
-      <!-- Luminance is preserved, so the face keeps its structure (still you);
-           only the colour is remapped onto a green ramp. The cartoon cue is
-           the thin, hand-wobbled ink contour around the silhouette. -->
-      <filter id="toonPortrait" x="-12%" y="-12%" width="124%" height="124%"
+      <!-- 1. blue duotone: luminance -> blue ramp + hand-wobbled ink contour -->
+      <filter id="toonBlue" x="-12%" y="-12%" width="124%" height="124%"
               color-interpolation-filters="sRGB">
         <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grey"/>
-        <feComponentTransfer in="grey" result="green">
-          <feFuncR type="table" tableValues="0.02 0.10 0.32 0.62 0.88"/>
-          <feFuncG type="table" tableValues="0.10 0.34 0.62 0.88 0.98"/>
-          <feFuncB type="table" tableValues="0.08 0.22 0.34 0.42 0.55"/>
+        <feComponentTransfer in="grey" result="blue">
+          <feFuncR type="table" tableValues="0.02 0.09 0.26 0.52 0.80"/>
+          <feFuncG type="table" tableValues="0.05 0.20 0.48 0.75 0.94"/>
+          <feFuncB type="table" tableValues="0.18 0.46 0.80 0.97 1"/>
         </feComponentTransfer>
         <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2"
                       seed="7" result="noise"/>
         <feDisplacementMap in="SourceAlpha" in2="noise" scale="2.6"
                            xChannelSelector="R" yChannelSelector="G" result="rough"/>
         <feMorphology in="rough" operator="dilate" radius="2.2" result="grow"/>
-        <feFlood flood-color="#0B3D2E" result="ink"/>
+        <feFlood flood-color="#0B1D3D" result="ink"/>
         <feComposite in="ink" in2="grow" operator="in" result="line"/>
         <feMerge>
           <feMergeNode in="line"/>
-          <feMergeNode in="green"/>
+          <feMergeNode in="blue"/>
+        </feMerge>
+      </filter>
+
+      <!-- 2. vintage: luminance -> yellowed sepia ramp, film grain, brown ink -->
+      <filter id="toonVintage" x="-12%" y="-12%" width="124%" height="124%"
+              color-interpolation-filters="sRGB">
+        <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="greyv"/>
+        <feComponentTransfer in="greyv" result="sepia">
+          <feFuncR type="table" tableValues="0.18 0.44 0.70 0.88 0.97"/>
+          <feFuncG type="table" tableValues="0.13 0.34 0.56 0.74 0.86"/>
+          <feFuncB type="table" tableValues="0.08 0.22 0.38 0.52 0.63"/>
+        </feComponentTransfer>
+        <!-- film grain: noise modulating its own alpha, multiplied over -->
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"
+                      seed="11" result="grain"/>
+        <feColorMatrix in="grain" type="matrix"
+          values="0 0 0 0 0
+                  0 0 0 0 0
+                  0 0 0 0 0
+                  0.7 0.4 0.15 0 0" result="speck"/>
+        <feBlend in="sepia" in2="speck" mode="multiply" result="aged"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2"
+                      seed="7" result="noisev"/>
+        <feDisplacementMap in="SourceAlpha" in2="noisev" scale="2.6"
+                           xChannelSelector="R" yChannelSelector="G" result="roughv"/>
+        <feMorphology in="roughv" operator="dilate" radius="2.2" result="growv"/>
+        <feFlood flood-color="#3A2A16" result="inkv"/>
+        <feComposite in="inkv" in2="growv" operator="in" result="linev"/>
+        <feMerge>
+          <feMergeNode in="linev"/>
+          <feMergeNode in="aged"/>
         </feMerge>
       </filter>
     </defs>

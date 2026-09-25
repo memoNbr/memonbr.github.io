@@ -333,16 +333,16 @@ body.cursor-on .cursor { opacity: 1; }
 
 .hero-photo { position: relative; display: grid; place-items: center; padding: 18px; }
 
-/* soft green blob behind — coheres with the green duotone portrait */
+/* soft blue blob behind — coheres with the blue duotone portrait */
 .hero-photo::before {
   content: "";
   position: absolute;
   inset: 2%;
   z-index: 0;
   border-radius: 46% 54% 42% 58% / 56% 44% 58% 42%;
-  background: linear-gradient(135deg, #6FE3B4 0%, #A6F0C6 52%, #6FC3F7 100%);
+  background: linear-gradient(135deg, #6FC3F7 0%, #A9C9FF 52%, #6FE3B4 100%);
   transform: rotate(-5deg);
-  transition: transform .6s var(--ease), border-radius .6s var(--ease);
+  transition: background .5s ease, transform .6s var(--ease), border-radius .6s var(--ease);
 }
 
 .hero-photo img {
@@ -353,8 +353,8 @@ body.cursor-on .cursor { opacity: 1; }
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 46% 54% 44% 56% / 54% 46% 56% 44%;
-  filter: url(#toonPortrait);      /* thin wobbly ink contour, tones intact */
-  transition: filter .4s ease, transform .5s var(--ease), border-radius .5s var(--ease);
+  filter: url(#toonBlue);          /* blue duotone, luminance (your face) intact */
+  transition: transform .5s var(--ease), border-radius .5s var(--ease);
 }
 
 /* faint sticker edge — light, so it reads on the night hero */
@@ -369,12 +369,18 @@ body.cursor-on .cursor { opacity: 1; }
   pointer-events: none;
 }
 
+/* hover: the portrait turns into an old, yellowed photograph */
 .hero-photo:hover img {
+  filter: url(#toonVintage);
   transform: rotate(2deg) scale(1.03);
   border-radius: 56% 44% 58% 42% / 44% 58% 42% 56%;
 }
 
-.hero-photo:hover::before { transform: rotate(3deg) scale(1.06); border-radius: 56% 44% 58% 42% / 44% 58% 42% 56%; }
+.hero-photo:hover::before {
+  background: linear-gradient(135deg, #E9C88A 0%, #D9AE72 55%, #C08A4E 100%);
+  transform: rotate(3deg) scale(1.06);
+  border-radius: 56% 44% 58% 42% / 44% 58% 42% 56%;
+}
 
 .hero-scroll {
   max-width: var(--max-w);
