@@ -3,306 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mehmet Emin Dilek — Applied Research Engineer</title>
-  <meta name="description" content="Applied Research Engineer — AI, Human Behavior & Automated Driving. Portfolio, experience, projects and passions of Mehmet Emin Dilek.">
+  <title>Mehmet Emin Dilek � Applied Research Engineer</title>
+  <meta name="description" content="Applied Research Engineer � AI, Human Behavior & Autonomous Driving. Portfolio, experience, projects and passions of Mehmet Emin Dilek.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Doppio+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <div class="scroll-progress" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"></div>
-
-  <header class="topbar">
+  <header class="header">
     <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#hero">MEDILEK<span class="brand-dot">.</span></a>
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
+      <a class="logo" href="#home">MED</a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#passions">Passions</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="hero" class="hero">
-      <div class="hero-grid">
-        <div class="hero-text">
-          <p class="hero-eyebrow reveal">Applied Research Engineer — Aachen</p>
-          <h1 class="reveal">Mehmet Emin<br><span class="accent">Dilek</span></h1>
-          <p class="hero-sub reveal" data-delay="1">Automotive Engineer <span class="sub-sep">·</span> Cognitive Agent <span class="sub-sep">·</span> Agentic Engineering</p>
-          <p class="hero-line reveal" data-delay="2">In my Master's thesis, I built a computable simulation — a cognitive agent model that predicts user acceptance of highly automated driving.</p>
-          <div class="hero-actions reveal" data-delay="3">
-            <a class="btn btn-solid" href="#projects">See my work</a>
-            <a class="btn btn-outline" href="#contact">Get in touch</a>
-            <a class="btn btn-outline" href="https://github.com/memonbr" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          </div>
-        </div>
-        <div class="hero-photo reveal" data-delay="2">
-          <img src="assets/profile.png" alt="Portrait of Mehmet Emin Dilek">
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="hero-label">Applied Research Engineer</p>
+        <h1 class="hero-title">
+          Mehmet Emin<br>Dilek
+        </h1>
+        <p class="hero-subtitle">Automotive Engineer � Cognitive Agent � Agentic Engineering</p>
+        <p class="hero-description">
+          In my Master's thesis, I built a computable simulation � a cognitive agent model that predicts user acceptance of highly automated driving.
+        </p>
+        <div class="hero-links">
+          <a href="#work" class="link link--primary">View Work</a>
+          <a href="#contact" class="link link--secondary">Get in Touch</a>
+          <a href="https://github.com/memonbr" target="_blank" rel="noopener noreferrer" class="link link--ghost">GitHub</a>
         </div>
       </div>
-      <a class="hero-scroll" href="#about">
-        <span>Scroll</span>
-        <span class="hero-scroll-arrow">↓</span>
-      </a>
-    </section>
-
-    <!-- MARQUEE -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="marquee-group">
-          cognitive simulation&nbsp;·&nbsp;agent orchestration&nbsp;·&nbsp;statistical modelling&nbsp;·&nbsp;user studies&nbsp;·&nbsp;python · pandas · tensorflow&nbsp;·&nbsp;highly automated driving&nbsp;·&nbsp;music production&nbsp;·&nbsp;
-        </span>
-        <span class="marquee-group">
-          cognitive simulation&nbsp;·&nbsp;agent orchestration&nbsp;·&nbsp;statistical modelling&nbsp;·&nbsp;user studies&nbsp;·&nbsp;python · pandas · tensorflow&nbsp;·&nbsp;highly automated driving&nbsp;·&nbsp;music production&nbsp;·&nbsp;
-        </span>
-      </div>
-    </div>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container">
-        <p class="section-label reveal">01 / About</p>
-        <h2 class="section-title reveal">Human-centred by design,<br>engineered with data.</h2>
-        <div class="about-cols">
-          <div class="reveal">
-            <p>I'm an Applied Research Engineer with an MSc in Automotive Engineering and hands-on experience in Python-based data analysis, statistical modelling and human behaviour experiments within highly automated driving.</p>
-            <p>My work lives where psychology, statistics and engineering meet: designing user studies, modelling acceptance, and currently building a cognitive simulation framework to study how a cognitively structured user interacts with highly automated vehicles — using agent-based workflows and AI-assisted development.</p>
-          </div>
-          <div class="reveal" data-delay="1">
-            <p>User-Centred Design fascinates me precisely because it connects disciplines. My thesis turned theory into a living, computable product: a model that predicts the acceptance rate of future users for highly automated vehicle interiors — a cognitive model of how people come to accept and use technology (TAM).</p>
-            <p>Every complex dataset I meet, I want to clean it, understand it, and turn it into something useful.</p>
-          </div>
-        </div>
-
-        <h3 class="block-label reveal">Diving deep into</h3>
-        <div class="index">
-          <div class="index-row reveal">
-            <span class="index-num">01</span>
-            <div class="index-text">
-              <h4>Cognitive Architecture</h4>
-              <p>Designing the inner structure of an artificial agent that mirrors human cognition — perception, attention, reasoning and trust — so we can simulate real users instead of approximating them.</p>
-            </div>
-            <img class="index-img" src="assets/cognitive-arch.svg" alt="Abstract illustration of a cognitive architecture">
-          </div>
-          <div class="index-row reveal" data-delay="1">
-            <span class="index-num">02</span>
-            <div class="index-text">
-              <h4>Agentic Engineering</h4>
-              <p>Simulating humans as cognitive agents inside the cabin — modelling perception, attention, trust and intention in real time, so the highly automated driving experience adapts to the person. The cabin is no longer one-dimensional: it reads and responds to a whole human user.</p>
-            </div>
-            <img class="index-img" src="assets/cabin-sim.svg" alt="Cognitive agent simulation inside a vehicle cabin">
-          </div>
-        </div>
-
-        <div class="now-block reveal">
-          <p class="now-label">Currently developing</p>
-          <p class="now-text">Agentic engineering — orchestrating multiple AI coding agents into workflows that plan, build, test and iterate end-to-end. The core simulation: modelling the user as a cognitive agent inside the cabin to understand real mobility needs — because the cabin is no longer one-dimensional.</p>
-        </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-shape"></div>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section section-alt">
-      <div class="container">
-        <p class="section-label reveal">02 / Skills</p>
-        <h2 class="section-title reveal">What I work with</h2>
-        <div class="rows">
-          <div class="row reveal">
-            <span class="row-title">Programming</span>
-            <div class="row-items">
-              <p>Python — pandas, numpy, statsmodels, matplotlib, TensorFlow</p>
-              <p>MATLAB</p>
-              <p>R</p>
-            </div>
+    <section id="work" class="work">
+      <header class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">Selected Work</h2>
+      </header>
+      <div class="work-grid">
+        <article class="work-item" data-title="Cognitive Agent Simulation">
+          <div class="work-thumb">
+            <img src="assets/cabin-sim.svg" alt="Cognitive agent simulation inside a vehicle cabin" loading="lazy">
           </div>
-          <div class="row reveal">
-            <span class="row-title">Research Methods</span>
-            <div class="row-items">
-              <p>User studies &amp; questionnaires</p>
-              <p>Statistical modelling — linear regression, SEM</p>
-              <p>Data processing, visualization &amp; analysis</p>
-            </div>
+          <div class="work-info">
+            <h3 class="work-title">Cognitive Agent Simulation</h3>
+            <p class="work-meta">Research � AI-assisted development</p>
+            <p class="work-desc">A living simulation of a human as a cognitive agent inside the cabin of a highly automated vehicle � modelling perception, attention, trust and intention to understand real mobility needs.</p>
+            <a href="#" class="work-link" aria-label="Read more about Cognitive Agent Simulation">Read more ?</a>
           </div>
-          <div class="row reveal">
-            <span class="row-title">Languages</span>
-            <div class="row-items">
-              <p>English — C1</p>
-              <p>German — B2</p>
-              <p>Turkish — C2</p>
-            </div>
+        </article>
+        <article class="work-item" data-title="User Acceptance Model">
+          <div class="work-thumb">
+            <img src="assets/av-scene.svg" alt="Autonomous vehicle and user acceptance" loading="lazy">
           </div>
+          <div class="work-info">
+            <h3 class="work-title">User Acceptance Model</h3>
+            <p class="work-meta">Thesis � Statistical modelling</p>
+            <p class="work-desc">A Python-based, computable model predicting the "Acceptance Rate" of future users for highly automated vehicle interiors. Built on the Technology Acceptance Model (TAM), combining regression analysis and structural equation modelling grounded in user study data.</p>
+            <a href="#" class="work-link" aria-label="Read more about User Acceptance Model">Read more ?</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <header class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">About</h2>
+      </header>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm an Applied Research Engineer with an MSc in Automotive Engineering and hands-on experience in Python-based data analysis, statistical modelling and human behaviour experiments within highly automated driving.</p>
+          <p>My work lives where psychology, statistics and engineering meet: designing user studies, modelling acceptance, and currently building a cognitive simulation framework to study how a cognitively structured user interacts with highly automated vehicles � using agent-based workflows and AI-assisted development.</p>
+          <p>User-Centred Design fascinates me precisely because it connects disciplines. My thesis turned theory into a living, computable product: a model that predicts the acceptance rate of future users for highly automated vehicle interiors � a cognitive model of how people come to accept and use technology (TAM).</p>
+          <p>Every complex dataset I meet, I want to clean it, understand it, and turn it into something useful.</p>
+        </div>
+        <div class="about-skills">
+          <h3>Skills</h3>
+          <ul class="skills-list">
+            <li><strong>Programming:</strong> Python (pandas, numpy, statsmodels, matplotlib, TensorFlow), MATLAB, R</li>
+            <li><strong>Research:</strong> User studies & questionnaires, Statistical modelling (linear regression, SEM), Data processing, visualization & analysis</li>
+            <li><strong>Languages:</strong> English (C1), German (B2), Turkish (C2)</li>
+          </ul>
+          <h3>Experience</h3>
+          <ul class="experience-list">
+            <li><strong>AI Human Labeller</strong> � Outlier AI (2026)</li>
+            <li><strong>AI Human Labeller</strong> � Innodata (2026)</li>
+            <li><strong>Research Assistant</strong> � E.ON Energy Research Center, RWTH Aachen (2025�2026)</li>
+            <li><strong>Student Research Assistant</strong> � RWTH Aachen (2019�2020)</li>
+            <li><strong>R&D Engineer</strong> � Metro Istanbul Corporation (2016)</li>
+          </ul>
+          <h3>Education</h3>
+          <ul class="education-list">
+            <li><strong>MSc Automotive Engineering</strong> � RWTH Aachen University (2018�2023)</li>
+            <li><strong>BSc Mechanical Engineering</strong> � Yildiz Technical University (2010�2016)</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section">
-      <div class="container">
-        <p class="section-label reveal">03 / Experience</p>
-        <h2 class="section-title reveal">Where I've worked</h2>
-        <div class="timeline">
-
-          <div class="timeline-item reveal">
-            <div class="timeline-meta">
-              <p class="timeline-role">AI Human Labeller</p>
-              <p class="timeline-org">Outlier AI</p>
-              <p class="timeline-date">01/2026 – 06/2026</p>
-            </div>
-            <div class="timeline-body">
-              <p>Communicating with language models to make them sound more humanistic over specific topics — sharpening authenticity and natural dialogue quality.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-meta">
-              <p class="timeline-role">AI Human Labeller</p>
-              <p class="timeline-org">Innodata</p>
-              <p class="timeline-date">Remote · 2026</p>
-            </div>
-            <div class="timeline-body">
-              <p>Data and model labelling to refine how AI models sound and respond — the same discipline applied at Outlier AI, keeping generated language natural, accurate and human.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-meta">
-              <p class="timeline-role">Research Assistant (Part-time)</p>
-              <p class="timeline-org">E.ON Energy Research Center, RWTH Aachen University</p>
-              <p class="timeline-date">01/2025 – 01/2026</p>
-            </div>
-            <div class="timeline-body">
-              <p>Co-designed and conducted user behaviour experiments within interdisciplinary research projects.</p>
-              <p>Analysed experimental data using Python, statistical methods and behavioural modelling approaches; processed, visualised and interpreted results to identify behavioural patterns.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-meta">
-              <p class="timeline-role">Student Research Assistant</p>
-              <p class="timeline-org">RWTH Aachen University</p>
-              <p class="timeline-date">06/2019 – 02/2020</p>
-            </div>
-            <div class="timeline-body">
-              <p>Numerical simulation and model validation of diesel injection systems, contributing to scientific publications.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-meta">
-              <p class="timeline-role">R&amp;D Engineer</p>
-              <p class="timeline-org">Metro Istanbul Corporation, Turkey</p>
-              <p class="timeline-date">02/2016 – 08/2016</p>
-            </div>
-            <div class="timeline-body">
-              <p>Numerical and sensitivity analysis of railway wagon designs.</p>
-            </div>
-          </div>
-
+    <section id="contact" class="contact">
+      <header class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Contact</h2>
+      </header>
+      <div class="contact-content">
+        <p class="contact-intro">Open to research collaborations, engineering roles and interesting conversations � in English, German or Turkish.</p>
+        <a href="mailto:mhmted@gmail.com" class="contact-email">mhmted@gmail.com</a>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/dilekmehmet" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/memonbr" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://soundcloud.com/memonbr" target="_blank" rel="noopener noreferrer">SoundCloud</a>
         </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section section-alt">
-      <div class="container">
-        <p class="section-label reveal">04 / Education</p>
-        <h2 class="section-title reveal">Academic background</h2>
-        <div class="rows">
-          <div class="row reveal">
-            <span class="row-title">MSc. Automotive Engineering</span>
-            <div class="row-items">
-              <p>RWTH Aachen University — 2018 – 2023</p>
-              <p>Thesis: Python-based statistical modelling and regression analysis of user acceptance for highly automated vehicle interiors.</p>
-            </div>
-          </div>
-          <div class="row reveal">
-            <span class="row-title">BSc. Mechanical Engineering</span>
-            <div class="row-items">
-              <p>Yildiz Technical University — 2010 – 2016</p>
-              <p>Additional coursework at Duisburg-Essen University (2015) and Istanbul Technical University (2016–2017).</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <div class="container">
-        <p class="section-label reveal">05 / Projects</p>
-        <h2 class="section-title reveal">Things I've built<span class="h1-dot">.</span></h2>
-        <p class="section-hint reveal" data-delay="1">Hover a row to take a look.</p>
-        <div class="index index-projects">
-          <div class="index-row reveal">
-            <span class="index-num">01</span>
-            <div class="index-text">
-              <h4>Cognitive Agent Simulation</h4>
-              <p class="project-tag">Research · AI-assisted development</p>
-              <p>A living simulation of a human as a cognitive agent inside the cabin of a highly automated vehicle — modelling perception, attention, trust and intention to understand real mobility needs. The cabin is no longer one-dimensional; it adapts to the person.</p>
-            </div>
-            <img class="index-img" src="assets/cabin-sim.svg" alt="Cognitive agent simulation inside a vehicle cabin">
-          </div>
-          <div class="index-row reveal" data-delay="1">
-            <span class="index-num">02</span>
-            <div class="index-text">
-              <h4>User Acceptance Model</h4>
-              <p class="project-tag">Thesis · Statistical modelling</p>
-              <p>A Python-based, computable model predicting the "Acceptance Rate" of future users for highly automated vehicle interiors. Built on the Technology Acceptance Model (TAM), combining regression analysis and structural equation modelling grounded in user study data.</p>
-            </div>
-            <img class="index-img" src="assets/av-scene.svg" alt="Autonomous vehicle and user acceptance">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PASSIONS -->
-    <section id="passions" class="section section-alt">
-      <div class="container">
-        <p class="section-label reveal">06 / Passions</p>
-        <h2 class="section-title reveal">Beyond the engineering</h2>
-        <div class="passions reveal">
-          <div class="passion-icon" aria-hidden="true">♪</div>
-          <div>
-            <h3>Digital Music Production</h3>
-            <p>When I'm not modelling behaviour, I'm shaping sound. I produce electronic music — building tracks from raw samples up inside Ableton Live, exploring rhythm, texture and emotion with the same patience I bring to data.</p>
-            <a class="text-link" href="https://soundcloud.com/memonbr" target="_blank" rel="noopener noreferrer">Listen on SoundCloud →</a>
-          </div>
-          <img class="club-img" src="assets/empty-club.jpg" alt="Empty nightclub with lights and dance floor">
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <p class="section-label reveal">07 / Contact</p>
-        <h2 class="section-title reveal">Let's build something<br>intelligent<span class="h1-dot">.</span></h2>
-        <p class="contact-intro reveal" data-delay="1">Open to research collaborations, engineering roles and interesting conversations — in English, German or Turkish.</p>
-        <a class="mail-big reveal" data-delay="1" href="mailto:mhmted@gmail.com">mhmted@gmail.com</a>
-        <div class="contact-links reveal" data-delay="2">
-          <a class="text-link" href="https://www.linkedin.com/in/dilekmehmet" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          <a class="text-link" href="https://github.com/memonbr" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          <a class="text-link" href="https://soundcloud.com/memonbr" target="_blank" rel="noopener noreferrer">SoundCloud ↗</a>
-        </div>
-        <p class="contact-location reveal" data-delay="2">Aachen, Germany · 52062</p>
+        <p class="contact-location">Aachen, Germany � 52062</p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2026 Mehmet Emin Dilek — designed &amp; built by hand. No templates. No watermarks.</p>
+    <p>� 2026 Mehmet Emin Dilek � Designed & built by hand.</p>
   </footer>
 
   <script src="script.js"></script>
