@@ -312,11 +312,12 @@ body.cursor-on .cursor { opacity: 1; }
 .btn:hover { transform: translate(-2px, -3px); box-shadow: 5px 6px 0 var(--ink); }
 .btn:active { transform: translate(0, 0); box-shadow: 1px 1px 0 var(--ink); }
 
-.btn-solid { background: var(--ink); color: var(--paper-2); }
+/* hero buttons: all white at rest, all flipping to blue on hover */
+.btn-solid { background: var(--paper-2); color: var(--ink); }
 .btn-solid:hover { background: var(--blue); color: #fff; }
 
 .btn-outline { background: var(--paper-2); color: var(--ink); }
-.btn-outline:hover { background: var(--sky); }
+.btn-outline:hover { background: var(--blue); color: #fff; }
 
 /* ---- profile photo: greyscale only, with a drawn ink contour ---- */
 .hero-photo { position: relative; display: grid; place-items: center; padding: 18px; }
