@@ -12,32 +12,30 @@
 </head>
 <body>
 
-  <!-- gentle toon contour for the portrait (declarative only, no text) -->
+  <!-- green duotone + hand-inked contour for the portrait (declarative only) -->
   <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
     <defs>
-      <!-- Light touch: the FACE stays photographic (tones, skin, expression
-           preserved). The cartoon cue comes from a thin, hand-wobbled ink
-           contour drawn around the silhouette. -->
+      <!-- Luminance is preserved, so the face keeps its structure (still you);
+           only the colour is remapped onto a green ramp. The cartoon cue is
+           the thin, hand-wobbled ink contour around the silhouette. -->
       <filter id="toonPortrait" x="-12%" y="-12%" width="124%" height="124%"
               color-interpolation-filters="sRGB">
-        <!-- barely-there warmth + contrast -->
-        <feComponentTransfer result="soft">
-          <feFuncR type="linear" slope="1.05" intercept="-0.015"/>
-          <feFuncG type="linear" slope="1.05" intercept="-0.015"/>
-          <feFuncB type="linear" slope="1.05" intercept="-0.015"/>
+        <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grey"/>
+        <feComponentTransfer in="grey" result="green">
+          <feFuncR type="table" tableValues="0.02 0.10 0.32 0.62 0.88"/>
+          <feFuncG type="table" tableValues="0.10 0.34 0.62 0.88 0.98"/>
+          <feFuncB type="table" tableValues="0.08 0.22 0.34 0.42 0.55"/>
         </feComponentTransfer>
-        <feColorMatrix in="soft" type="saturate" values="1.16" result="warm"/>
-        <!-- wobble the silhouette a touch so the line looks drawn by hand -->
         <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2"
                       seed="7" result="noise"/>
         <feDisplacementMap in="SourceAlpha" in2="noise" scale="2.6"
                            xChannelSelector="R" yChannelSelector="G" result="rough"/>
         <feMorphology in="rough" operator="dilate" radius="2.2" result="grow"/>
-        <feFlood flood-color="#14100E" result="ink"/>
+        <feFlood flood-color="#0B3D2E" result="ink"/>
         <feComposite in="ink" in2="grow" operator="in" result="line"/>
         <feMerge>
           <feMergeNode in="line"/>
-          <feMergeNode in="warm"/>
+          <feMergeNode in="green"/>
         </feMerge>
       </filter>
     </defs>
