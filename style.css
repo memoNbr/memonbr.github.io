@@ -223,15 +223,15 @@ body.cursor-on .cursor { opacity: 1; }
   50% { transform: translate(4px, -8px) rotate(3deg); }
 }
 
-/* ---------- Hero: the blue block — same pastel family, blue-led ---------- */
+/* ---------- Hero: the intro block, in the Education section's butter tone ---------- */
 .hero {
   position: relative;
   border-bottom: 2px solid var(--ink);
   color: var(--ink);
   background:
     radial-gradient(64% 82% at 8% -8%, rgba(255, 122, 147, .22), transparent 62%),
-    radial-gradient(58% 76% at 96% 6%, rgba(183, 156, 255, .28), transparent 64%),
-    linear-gradient(165deg, var(--blue-soft) 0%, var(--blue-soft-2) 58%, #C6E6F6 100%);
+    radial-gradient(58% 76% at 96% 6%, rgba(183, 156, 255, .26), transparent 64%),
+    linear-gradient(165deg, #FFEDA8 0%, var(--butter) 58%, #FFE6A3 100%);
 }
 
 .hero-grid {
@@ -318,21 +318,19 @@ body.cursor-on .cursor { opacity: 1; }
 .btn-outline { background: var(--paper-2); color: var(--ink); }
 .btn-outline:hover { background: var(--sky); }
 
-/* ---- profile photo: gentle toon (you stay you, drawn with an ink line) ---- */
-.svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
-
+/* ---- profile photo: greyscale only, with a drawn ink contour ---- */
 .hero-photo { position: relative; display: grid; place-items: center; padding: 18px; }
 
-/* soft amber blob behind — coheres with the vintage portrait (default) */
+/* neutral grey blob behind, so nothing colours the portrait */
 .hero-photo::before {
   content: "";
   position: absolute;
   inset: 2%;
   z-index: 0;
   border-radius: 46% 54% 42% 58% / 56% 44% 58% 42%;
-  background: linear-gradient(135deg, #E9C88A 0%, #D9AE72 55%, #C08A4E 100%);
+  background: linear-gradient(135deg, #DEDCD8 0%, #C2C2C6 55%, #A9A9AF 100%);
   transform: rotate(-5deg);
-  transition: background .5s ease, transform .6s var(--ease), border-radius .6s var(--ease);
+  transition: transform .6s var(--ease), border-radius .6s var(--ease);
 }
 
 .hero-photo img {
@@ -343,34 +341,35 @@ body.cursor-on .cursor { opacity: 1; }
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 46% 54% 44% 56% / 54% 46% 56% 44%;
-  filter: url(#toonVintage);       /* old photograph by default */
-  transition: transform .5s var(--ease), border-radius .5s var(--ease);
+  /* greyscale only + a hard ink outline drawn from the alpha silhouette */
+  filter: grayscale(1) contrast(1.06) brightness(1.02)
+          drop-shadow(2px 0 0 var(--ink)) drop-shadow(-2px 0 0 var(--ink))
+          drop-shadow(0 2px 0 var(--ink)) drop-shadow(0 -2px 0 var(--ink));
+  transition: filter .35s ease, transform .5s var(--ease), border-radius .5s var(--ease);
 }
 
-/* faint sticker edge — light, so it reads on the night hero */
+/* faint sticker edge */
 .hero-photo::after {
   content: "";
   position: absolute;
   inset: 26px;
   z-index: 2;
-  border: 2px dashed rgba(255, 255, 255, .45);
+  border: 2px dashed rgba(20, 16, 14, .35);
   border-radius: 44% 56% 46% 54% / 52% 48% 54% 46%;
-  opacity: .55;
+  opacity: .5;
   pointer-events: none;
 }
 
-/* hover: the old photograph flips to the blue duotone */
+/* hover: a touch more contrast and lift — still greyscale */
 .hero-photo:hover img {
-  filter: url(#toonBlue);
+  filter: grayscale(1) contrast(1.14) brightness(1.04)
+          drop-shadow(3px 0 0 var(--ink)) drop-shadow(-3px 0 0 var(--ink))
+          drop-shadow(0 3px 0 var(--ink)) drop-shadow(0 -3px 0 var(--ink));
   transform: rotate(2deg) scale(1.03);
   border-radius: 56% 44% 58% 42% / 44% 58% 42% 56%;
 }
 
-.hero-photo:hover::before {
-  background: linear-gradient(135deg, #6FC3F7 0%, #A9C9FF 52%, #6FE3B4 100%);
-  transform: rotate(3deg) scale(1.06);
-  border-radius: 56% 44% 58% 42% / 44% 58% 42% 56%;
-}
+.hero-photo:hover::before { transform: rotate(3deg) scale(1.06); border-radius: 56% 44% 58% 42% / 44% 58% 42% 56%; }
 
 .hero-scroll {
   max-width: var(--max-w);
@@ -423,7 +422,7 @@ body.cursor-on .cursor { opacity: 1; }
 #about { background: var(--paper); }
 #skills { background: var(--mint); }
 #experience { background: var(--paper); }
-#education { background: var(--butter); }
+#education { background: var(--blue-soft); }
 #projects { background: var(--lilac); }
 #passions { background: var(--sky); }
 #contact { background: var(--ink); color: var(--paper); border-bottom: none; }
@@ -467,7 +466,7 @@ body.cursor-on .cursor { opacity: 1; }
 }
 
 #skills .section-label { background: var(--pink); color: #fff; }
-#education .section-label { background: var(--mint); }
+#education .section-label { background: var(--blue); color: #fff; }
 #projects .section-label { background: var(--butter); }
 #passions .section-label { background: var(--pink); color: #fff; }
 #contact .section-label { background: var(--butter); color: var(--ink); }
@@ -549,7 +548,7 @@ body.cursor-on .cursor { opacity: 1; }
   margin-top: 2px;
 }
 
-#education .index-num { background: var(--sky); }
+#education .index-num { background: var(--blue); }
 #projects .index-num { background: var(--mint); }
 
 .index-text { max-width: 34em; }
