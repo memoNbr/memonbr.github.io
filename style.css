@@ -1,20 +1,22 @@
 /* ============================================================
    Mehmet Emin Dilek — Personal site
-   Editorial + interactive · Metallic palette (silver, steel, white vehicle)
+   Editorial + interactive · Figma Tropical Heat palette
    ============================================================ */
 
 :root {
-  --bg: #c0c4c8;                    /* metallic silver base */
-  --bg-deep: #a8adb4;               /* darker steel for alt sections */
-  --bg-soft: #d8dce0;               /* lighter highlight */
-  --ink: #1a1c1e;                   /* near-black charcoal */
-  --muted: #4a4e54;                 /* muted steel gray */
-  --accent: #e8eaf0;                /* white vehicle body */
-  --accent-alt: #9aa0a6;            /* mid-tone steel */
-  --highlight: #d4d8dc;             /* bright steel highlight */
-  --line: rgba(26, 28, 30, 0.15);
-  --line-soft: rgba(26, 28, 30, 0.08);
-  --cream-soft: #f0f2f5;
+  --bg: #f8f0dc;                    /* Coconut White - warm creamy base */
+  --bg-deep: #f4d1b9;               /* sandy beige for alt sections */
+  --bg-soft: #fff5e6;               /* lighter cream highlight */
+  --ink: #1a1a2e;                   /* deep charcoal */
+  --muted: #6b5b4d;                 /* muted warm gray */
+  --accent: #009b8c;                /* Spectra Green / turquoise */
+  --accent-alt: #ff8c20;            /* Mango orange */
+  --highlight: #ff6878;             /* Flamingo Pink */
+  --coral: #c2343c;                 /* Tropical Heat red */
+  --sunshine: #ffd040;              /* Sunshine yellow */
+  --line: rgba(26, 26, 46, 0.15);
+  --line-soft: rgba(26, 26, 46, 0.08);
+  --cream-soft: #fefdf8;
   --max-w: 1120px;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
@@ -29,23 +31,43 @@ html {
 body {
   font-family: "Doppio One", Arial, Helvetica, sans-serif;
   background: 
-    linear-gradient(135deg, rgba(192, 196, 200, 0.4) 0%, rgba(232, 234, 240, 0.3) 25%, rgba(168, 173, 180, 0.5) 50%, rgba(216, 220, 224, 0.3) 75%, rgba(176, 180, 184, 0.4) 100%),
-    url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1920&q=80') center/cover fixed no-repeat;
-  background-blend-mode: overlay, multiply;
-  background-size: 200% 200%, cover;
-  background-position: center, center;
-  background-attachment: fixed, fixed;
-  animation: metallic-shift 20s ease-in-out infinite;
+    /* Base cream */
+    var(--bg),
+    /* Minimal geometric shapes - subtle circles */
+    radial-gradient(circle at 15% 20%, rgba(0, 155, 140, 0.06) 0%, transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(255, 104, 120, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(255, 140, 32, 0.04) 0%, transparent 40%),
+    /* Thin diagonal lines */
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 100px,
+      rgba(0, 155, 140, 0.02) 100px,
+      rgba(0, 155, 140, 0.02) 101px
+    ),
+    /* Subtle grid dots */
+    radial-gradient(circle, rgba(194, 52, 60, 0.03) 1px, transparent 1px);
+  background-size: 
+    cover,
+    400px 400px,
+    500px 500px,
+    350px 350px,
+    200px 200px,
+    60px 60px;
+  background-position: 
+    center,
+    0 0,
+    100% 100%,
+    50% 50%,
+    0 0,
+    0 0;
+  background-attachment: fixed;
+  background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat;
   color: var(--ink);
   line-height: 1.65;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-}
-
-@keyframes metallic-shift {
-  0%, 100% { background-position: center, center; }
-  50% { background-position: 55% 50%, center; }
 }
 
 img { max-width: 100%; display: block; }
@@ -102,7 +124,7 @@ body.cursor-on .cursor { opacity: 1; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: linear-gradient(180deg, rgba(216, 220, 224, 0.95), rgba(192, 196, 200, 0.9));
+  background: rgba(248, 240, 220, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-soft);
 }
@@ -601,23 +623,23 @@ body.cursor-on .cursor { opacity: 1; }
 
 /* ---------- Contact ---------- */
 .contact { background: var(--ink); color: var(--cream-soft); }
-.contact .section-label { color: var(--highlight); }
-.contact .section-title { color: var(--accent); }
-.contact-intro { color: var(--accent-alt); max-width: 38em; margin-bottom: 40px; }
+.contact .section-label { color: var(--sunshine); }
+.contact .section-title { color: var(--cream-soft); }
+.contact-intro { color: var(--highlight); max-width: 38em; margin-bottom: 40px; }
 
 .mail-big {
   display: inline-block;
   font-size: clamp(22px, 3.6vw, 40px);
   font-weight: 900;
   letter-spacing: -1px;
-  color: var(--accent);
-  border-bottom: 3px solid var(--highlight);
+  color: var(--cream-soft);
+  border-bottom: 3px solid var(--sunshine);
   padding-bottom: 6px;
   margin-bottom: 46px;
   transition: color .3s ease, border-color .3s ease;
 }
 
-.mail-big:hover { color: var(--highlight); }
+.mail-big:hover { color: var(--sunshine); }
 
 .contact-links {
   display: flex;
@@ -626,7 +648,7 @@ body.cursor-on .cursor { opacity: 1; }
   margin-bottom: 40px;
 }
 
-.contact-links .text-link { border-bottom-color: var(--highlight); }
+.contact-links .text-link { border-bottom-color: var(--sunshine); }
 
 .contact-location {
   font-size: 13px;
@@ -638,7 +660,7 @@ body.cursor-on .cursor { opacity: 1; }
 /* ---------- Footer ---------- */
 .footer {
   background: var(--ink);
-  color: var(--accent-alt);
+  color: var(--muted);
   text-align: center;
   font-size: 13px;
   padding: 30px 24px;
