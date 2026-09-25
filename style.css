@@ -1,22 +1,23 @@
 /* ============================================================
    Mehmet Emin Dilek — Personal site
-   Editorial + interactive · Figma Tropical Heat palette
+   Editorial + interactive · Forest theme (pine trees in snow)
    ============================================================ */
 
 :root {
-  --bg: #f8f0dc;                    /* Coconut White - warm creamy base */
-  --bg-deep: #f4d1b9;               /* sandy beige for alt sections */
-  --bg-soft: #fff5e6;               /* lighter cream highlight */
-  --ink: #1a1a2e;                   /* deep charcoal */
-  --muted: #6b5b4d;                 /* muted warm gray */
-  --accent: #009b8c;                /* Spectra Green / turquoise */
-  --accent-alt: #ff8c20;            /* Mango orange */
-  --highlight: #ff6878;             /* Flamingo Pink */
-  --coral: #c2343c;                 /* Tropical Heat red */
-  --sunshine: #ffd040;              /* Sunshine yellow */
-  --line: rgba(26, 26, 46, 0.15);
-  --line-soft: rgba(26, 26, 46, 0.08);
-  --cream-soft: #fefdf8;
+  --bg: #e8f0e8;                    /* soft sage mist */
+  --bg-deep: #d0e0d0;               /* lighter sage for alt sections */
+  --bg-soft: #f0f5f0;               /* pale mint highlight */
+  --ink: #1b2a1b;                   /* deep forest charcoal */
+  --muted: #3d5a3d;                 /* muted pine green */
+  --accent: #2d5a2d;                /* forest green primary */
+  --accent-alt: #4a7c4a;            /* mid pine green */
+  --highlight: #8fb88f;             /* frosted pine */
+  --snow: #f5f8f5;                  /* snow white */
+  --bark: #4a3728;                  /* tree bark brown */
+  --amber: #c9963a;                 /* amber glow */
+  --line: rgba(27, 42, 27, 0.15);
+  --line-soft: rgba(27, 42, 27, 0.08);
+  --cream-soft: #fafcf8;
   --max-w: 1120px;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
@@ -31,38 +32,12 @@ html {
 body {
   font-family: "Doppio One", Arial, Helvetica, sans-serif;
   background: 
-    /* Base cream */
-    var(--bg),
-    /* Minimal geometric shapes - subtle circles */
-    radial-gradient(circle at 15% 20%, rgba(0, 155, 140, 0.06) 0%, transparent 35%),
-    radial-gradient(circle at 85% 80%, rgba(255, 104, 120, 0.05) 0%, transparent 30%),
-    radial-gradient(circle at 50% 50%, rgba(255, 140, 32, 0.04) 0%, transparent 40%),
-    /* Thin diagonal lines */
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 100px,
-      rgba(0, 155, 140, 0.02) 100px,
-      rgba(0, 155, 140, 0.02) 101px
-    ),
-    /* Subtle grid dots */
-    radial-gradient(circle, rgba(194, 52, 60, 0.03) 1px, transparent 1px);
-  background-size: 
-    cover,
-    400px 400px,
-    500px 500px,
-    350px 350px,
-    200px 200px,
-    60px 60px;
-  background-position: 
-    center,
-    0 0,
-    100% 100%,
-    50% 50%,
-    0 0,
-    0 0;
-  background-attachment: fixed;
-  background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat;
+    linear-gradient(180deg, rgba(240, 245, 240, 0.3) 0%, rgba(208, 224, 208, 0.4) 50%, rgba(232, 240, 232, 0.3) 100%),
+    url('https://images.unsplash.com/photo-1490144463230-97c1e1c924a5?w=1920&q=80') center/cover fixed no-repeat;
+  background-blend-mode: overlay;
+  background-size: cover, cover;
+  background-position: center, center top;
+  background-attachment: fixed, fixed;
   color: var(--ink);
   line-height: 1.65;
   font-size: 16px;
@@ -124,7 +99,7 @@ body.cursor-on .cursor { opacity: 1; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(248, 240, 220, 0.92);
+  background: rgba(240, 245, 240, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-soft);
 }
@@ -623,8 +598,8 @@ body.cursor-on .cursor { opacity: 1; }
 
 /* ---------- Contact ---------- */
 .contact { background: var(--ink); color: var(--cream-soft); }
-.contact .section-label { color: var(--sunshine); }
-.contact .section-title { color: var(--cream-soft); }
+.contact .section-label { color: var(--amber); }
+.contact .section-title { color: var(--snow); }
 .contact-intro { color: var(--highlight); max-width: 38em; margin-bottom: 40px; }
 
 .mail-big {
@@ -632,14 +607,14 @@ body.cursor-on .cursor { opacity: 1; }
   font-size: clamp(22px, 3.6vw, 40px);
   font-weight: 900;
   letter-spacing: -1px;
-  color: var(--cream-soft);
-  border-bottom: 3px solid var(--sunshine);
+  color: var(--snow);
+  border-bottom: 3px solid var(--amber);
   padding-bottom: 6px;
   margin-bottom: 46px;
   transition: color .3s ease, border-color .3s ease;
 }
 
-.mail-big:hover { color: var(--sunshine); }
+.mail-big:hover { color: var(--amber); }
 
 .contact-links {
   display: flex;
@@ -648,7 +623,7 @@ body.cursor-on .cursor { opacity: 1; }
   margin-bottom: 40px;
 }
 
-.contact-links .text-link { border-bottom-color: var(--sunshine); }
+.contact-links .text-link { border-bottom-color: var(--amber); }
 
 .contact-location {
   font-size: 13px;
@@ -659,8 +634,8 @@ body.cursor-on .cursor { opacity: 1; }
 
 /* ---------- Footer ---------- */
 .footer {
-  background: var(--ink);
-  color: var(--muted);
+  background: var(--bark);
+  color: var(--highlight);
   text-align: center;
   font-size: 13px;
   padding: 30px 24px;
