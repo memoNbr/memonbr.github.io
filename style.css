@@ -1,19 +1,20 @@
 /* ============================================================
    Mehmet Emin Dilek — Personal site
-   Editorial + interactive · turquoise · black Arial
+   Editorial + interactive · Hook Agency #10 palette (Tan, pink, red)
    ============================================================ */
 
 :root {
-  --bg: #2185DF;            /* blue hardcourt base */
-  --bg-deep: #1869BD;       /* deeper blue for alt sections */
-  --bg-soft: #3A96E7;       /* lighter blue for accents */
-  --ink: #0B0B0B;
-  --muted: #0A2540;         /* dark blue secondary text */
-  --accent: #0D47A1;        /* deep blue for tags/dates */
-  --line: rgba(0, 0, 0, 0.2);
-  --line-soft: rgba(0, 0, 0, 0.12);
-  --teal-light: #90CAF9;    /* accents on dark */
-  --cream-soft: #E3F2FD;
+  --bg: #fff5d7;            /* Ragin Beige - warm page background */
+  --bg-deep: #f0d9b8;       /* lighter tan for alt sections */
+  --bg-soft: #fff8e7;       /* softer cream for accents */
+  --ink: #3d2e2e;           /* warm dark ink */
+  --muted: #8b7373;         /* muted warm secondary text */
+  --accent: #ff5e6c;        /* Coral Pink - primary accent */
+  --line: rgba(61, 46, 46, 0.2);
+  --line-soft: rgba(61, 46, 46, 0.12);
+  --accent-alt: #ffaaab;    /* Pink Leaf - secondary accent */
+  --highlight: #feb300;     /* Sleuthe Yellow - highlights */
+  --cream-soft: #fffef7;    /* warm white */
   --max-w: 1120px;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
@@ -27,7 +28,7 @@ html {
 
 body {
   font-family: "Doppio One", Arial, Helvetica, sans-serif;
-  background: linear-gradient(rgba(33, 133, 223, 0.88), rgba(24, 105, 189, 0.92)), url('assets/blue-hardcourt.jpg') center/cover fixed no-repeat;
+  background: var(--bg);
   color: var(--ink);
   line-height: 1.65;
   font-size: 16px;
@@ -89,7 +90,7 @@ body.cursor-on .cursor { opacity: 1; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(33, 133, 223, 0.86);
+  background: rgba(255, 245, 215, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-soft);
 }
@@ -588,9 +589,9 @@ body.cursor-on .cursor { opacity: 1; }
 
 /* ---------- Contact ---------- */
 .contact { background: var(--ink); color: var(--cream-soft); }
-.contact .section-label { color: var(--teal-light); }
+.contact .section-label { color: var(--highlight); }
 .contact .section-title { color: var(--cream-soft); }
-.contact-intro { color: #C3DED7; max-width: 38em; margin-bottom: 40px; }
+.contact-intro { color: var(--accent-alt); max-width: 38em; margin-bottom: 40px; }
 
 .mail-big {
   display: inline-block;
@@ -598,13 +599,13 @@ body.cursor-on .cursor { opacity: 1; }
   font-weight: 900;
   letter-spacing: -1px;
   color: var(--cream-soft);
-  border-bottom: 3px solid var(--teal-light);
+  border-bottom: 3px solid var(--highlight);
   padding-bottom: 6px;
   margin-bottom: 46px;
   transition: color .3s ease, border-color .3s ease;
 }
 
-.mail-big:hover { color: var(--teal-light); }
+.mail-big:hover { color: var(--highlight); }
 
 .contact-links {
   display: flex;
@@ -613,19 +614,19 @@ body.cursor-on .cursor { opacity: 1; }
   margin-bottom: 40px;
 }
 
-.contact-links .text-link { border-bottom-color: var(--teal-light); }
+.contact-links .text-link { border-bottom-color: var(--highlight); }
 
 .contact-location {
   font-size: 13px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #7FB8AC;
+  color: var(--accent-alt);
 }
 
 /* ---------- Footer ---------- */
 .footer {
   background: var(--ink);
-  color: #7FB8AC;
+  color: var(--accent-alt);
   text-align: center;
   font-size: 13px;
   padding: 30px 24px;
