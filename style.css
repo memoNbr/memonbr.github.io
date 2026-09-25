@@ -29,12 +29,12 @@
   --display: "Bricolage Grotesque", "Segoe UI", sans-serif;
   --body: "Inter", "Segoe UI", system-ui, sans-serif;
 
-  /* hero: the inverted (night) end of the page */
-  --night: #1B1538;
-  --night-2: #2C2154;
-  --night-ink: #0B0819;
-  --night-text: #EFE9FF;
-  --night-muted: #C6BAE8;
+  /* blue: the hero's own colour, tuned to sit beside the candy pastels */
+  --blue: #2F7DE1;
+  --blue-deep: #14509E;
+  --blue-soft: #CDE9FB;
+  --blue-soft-2: #A8D8F7;
+  --slate: #3E4A57;
 
   --max-w: 1180px;
   --ease: cubic-bezier(.22, 1, .36, 1);
@@ -197,7 +197,7 @@ body.cursor-on .cursor { opacity: 1; }
   width: 76px;
   top: 26px;
   right: 34px;
-  stroke: var(--mint);
+  stroke: var(--pink-hot);
   animation: spin 14s linear infinite;
 }
 
@@ -205,7 +205,7 @@ body.cursor-on .cursor { opacity: 1; }
   width: 120px;
   left: 30px;
   bottom: 18px;
-  stroke: var(--sky);
+  stroke: var(--mint);
   animation: nudge 6s ease-in-out infinite;
 }
 
@@ -223,15 +223,15 @@ body.cursor-on .cursor { opacity: 1; }
   50% { transform: translate(4px, -8px) rotate(3deg); }
 }
 
-/* ---------- Hero: colours turned upside down (the dark, saturated anchor) ---------- */
+/* ---------- Hero: the blue block — same pastel family, blue-led ---------- */
 .hero {
   position: relative;
-  border-bottom: 2px solid var(--night-ink);
-  color: var(--night-text);
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
   background:
-    radial-gradient(72% 92% at 10% -6%, rgba(183, 156, 255, .30), transparent 62%),
-    radial-gradient(62% 82% at 94% 10%, rgba(111, 195, 247, .24), transparent 64%),
-    linear-gradient(165deg, var(--night-2) 0%, var(--night) 58%, #241B47 100%);
+    radial-gradient(64% 82% at 8% -8%, rgba(255, 122, 147, .22), transparent 62%),
+    radial-gradient(58% 76% at 96% 6%, rgba(183, 156, 255, .28), transparent 64%),
+    linear-gradient(165deg, var(--blue-soft) 0%, var(--blue-soft-2) 58%, #C6E6F6 100%);
 }
 
 .hero-grid {
@@ -254,13 +254,13 @@ body.cursor-on .cursor { opacity: 1; }
   font-weight: 700;
   letter-spacing: 2.6px;
   text-transform: uppercase;
-  background: var(--lilac);
-  color: var(--night-ink);
-  border: 2px solid var(--night-ink);
+  background: var(--paper-2);
+  color: var(--blue-deep);
+  border: 2px solid var(--ink);
   border-radius: 999px;
   padding: 7px 16px;
   margin-bottom: 22px;
-  box-shadow: 4px 4px 0 var(--night-ink);
+  box-shadow: 4px 4px 0 var(--ink);
 }
 
 .hero h1 {
@@ -270,25 +270,25 @@ body.cursor-on .cursor { opacity: 1; }
   line-height: .96;
   letter-spacing: -3.5px;
   align-self: flex-start;
-  color: #fff;
+  color: var(--ink);
 }
 
-.accent { color: var(--mint); }
+.accent { color: var(--blue); }
 
 .hero-sub {
   font-family: var(--display);
   font-size: clamp(16px, 1.9vw, 21px);
   font-weight: 600;
-  color: var(--night-text);
+  color: var(--ink);
   margin-top: 28px;
   max-width: 28em;
 }
 
-.sub-sep { color: var(--mint); padding: 0 4px; }
+.sub-sep { color: var(--pink-hot); padding: 0 4px; }
 
 .hero-line {
   font-size: 17px;
-  color: var(--night-muted);
+  color: var(--slate);
   max-width: 32em;
   margin-top: 14px;
   margin-bottom: 32px;
@@ -312,35 +312,25 @@ body.cursor-on .cursor { opacity: 1; }
 .btn:hover { transform: translate(-2px, -3px); box-shadow: 5px 6px 0 var(--ink); }
 .btn:active { transform: translate(0, 0); box-shadow: 1px 1px 0 var(--ink); }
 
-/* hero buttons sit on the night block: recolour the press/hover furniture */
-.hero .btn { border-color: var(--night-ink); }
-.hero .btn:hover { box-shadow: 5px 6px 0 var(--night-ink); }
-.hero .btn:active { box-shadow: 1px 1px 0 var(--night-ink); }
-
 .btn-solid { background: var(--ink); color: var(--paper-2); }
-.btn-solid:hover { background: var(--pink-hot); color: #fff; }
+.btn-solid:hover { background: var(--blue); color: #fff; }
 
 .btn-outline { background: var(--paper-2); color: var(--ink); }
 .btn-outline:hover { background: var(--sky); }
-
-.hero .btn-solid { background: var(--mint); color: #0C2A22; }
-.hero .btn-solid:hover { background: var(--butter); color: var(--night-ink); }
-.hero .btn-outline { background: transparent; color: var(--night-text); }
-.hero .btn-outline:hover { background: var(--lilac); color: var(--night-ink); }
 
 /* ---- profile photo: gentle toon (you stay you, drawn with an ink line) ---- */
 .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 
 .hero-photo { position: relative; display: grid; place-items: center; padding: 18px; }
 
-/* soft blue blob behind — coheres with the blue duotone portrait */
+/* soft amber blob behind — coheres with the vintage portrait (default) */
 .hero-photo::before {
   content: "";
   position: absolute;
   inset: 2%;
   z-index: 0;
   border-radius: 46% 54% 42% 58% / 56% 44% 58% 42%;
-  background: linear-gradient(135deg, #6FC3F7 0%, #A9C9FF 52%, #6FE3B4 100%);
+  background: linear-gradient(135deg, #E9C88A 0%, #D9AE72 55%, #C08A4E 100%);
   transform: rotate(-5deg);
   transition: background .5s ease, transform .6s var(--ease), border-radius .6s var(--ease);
 }
@@ -353,7 +343,7 @@ body.cursor-on .cursor { opacity: 1; }
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 46% 54% 44% 56% / 54% 46% 56% 44%;
-  filter: url(#toonBlue);          /* blue duotone, luminance (your face) intact */
+  filter: url(#toonVintage);       /* old photograph by default */
   transition: transform .5s var(--ease), border-radius .5s var(--ease);
 }
 
@@ -369,15 +359,15 @@ body.cursor-on .cursor { opacity: 1; }
   pointer-events: none;
 }
 
-/* hover: the portrait turns into an old, yellowed photograph */
+/* hover: the old photograph flips to the blue duotone */
 .hero-photo:hover img {
-  filter: url(#toonVintage);
+  filter: url(#toonBlue);
   transform: rotate(2deg) scale(1.03);
   border-radius: 56% 44% 58% 42% / 44% 58% 42% 56%;
 }
 
 .hero-photo:hover::before {
-  background: linear-gradient(135deg, #E9C88A 0%, #D9AE72 55%, #C08A4E 100%);
+  background: linear-gradient(135deg, #6FC3F7 0%, #A9C9FF 52%, #6FE3B4 100%);
   transform: rotate(3deg) scale(1.06);
   border-radius: 56% 44% 58% 42% / 44% 58% 42% 56%;
 }
@@ -393,23 +383,22 @@ body.cursor-on .cursor { opacity: 1; }
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--night-muted);
-  opacity: .85;
+  color: var(--ink);
+  opacity: .6;
 }
 
 .hero-scroll-arrow { display: inline-flex; animation: bob 1.8s ease-in-out infinite; }
 @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 
 /* ---------- Marquee: candy ticker ---------- */
-/* mint, so it separates the night hero from the cream sections below */
 .marquee {
-  background: var(--mint);
-  color: var(--night-ink);
+  background: var(--ink);
+  color: var(--paper);
   padding: 13px 0;
   overflow: hidden;
   transform: rotate(-.5deg) scale(1.01);
-  border-top: 2px solid var(--night-ink);
-  border-bottom: 2px solid var(--night-ink);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
 }
 
 .marquee-track { display: flex; white-space: nowrap; width: max-content; animation: marquee 32s linear infinite; }
