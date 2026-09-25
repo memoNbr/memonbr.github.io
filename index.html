@@ -12,6 +12,32 @@
 </head>
 <body>
 
+  <!-- comic-print filter for the portrait (declarative only, no text) -->
+  <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="comicPortrait" x="-18%" y="-18%" width="136%" height="136%"
+              color-interpolation-filters="sRGB">
+        <!-- 1. posterize into flat comic tones -->
+        <feComponentTransfer result="tone">
+          <feFuncR type="discrete" tableValues="0.10 0.40 0.74 1"/>
+          <feFuncG type="discrete" tableValues="0.10 0.40 0.74 1"/>
+          <feFuncB type="discrete" tableValues="0.14 0.46 0.80 1"/>
+        </feComponentTransfer>
+        <feColorMatrix in="tone" type="saturate" values="1.7" result="flat"/>
+        <!-- 2. ink spread: colour bleeds a hair past the edge, like print -->
+        <feMorphology in="flat" operator="dilate" radius="1.3" result="spread"/>
+        <!-- 3. bold silhouette outline drawn behind the photo -->
+        <feMorphology in="SourceAlpha" operator="dilate" radius="4.5" result="grow"/>
+        <feFlood flood-color="#14100E" result="ink"/>
+        <feComposite in="ink" in2="grow" operator="in" result="line"/>
+        <feMerge>
+          <feMergeNode in="line"/>
+          <feMergeNode in="spread"/>
+        </feMerge>
+      </filter>
+    </defs>
+  </svg>
+
   <div class="scroll-progress" aria-hidden="true"></div>
   <div class="cursor" aria-hidden="true"></div>
 
