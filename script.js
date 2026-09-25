@@ -81,7 +81,7 @@
       y = e.clientY;
       if (!raf) {
         raf = requestAnimationFrame(function () {
-          cursor.style.transform = "translate(" + (x - 15) + "px, " + (y - 15) + "px)";
+          cursor.style.transform = "translate(" + (x - 13) + "px, " + (y - 13) + "px)";
           raf = null;
         });
       }
